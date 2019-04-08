@@ -11,7 +11,7 @@ import {FormGroup,FormBuilder,Validators} from '@angular/forms';
 export class LoginComponent implements OnInit {
    loginForm:FormGroup;
    returnUrl:string;
-
+   message:any;
   constructor(private service:LoginService,private router:Router,private formBuilder:FormBuilder,private route:ActivatedRoute) {
       if(this.service.currentUserValue)
       {
@@ -34,6 +34,10 @@ export class LoginComponent implements OnInit {
    {
      this.loginForm.reset();
    }
+   close()
+   {
+     this.message="";
+   }
   loginUser(username,password)
   {
     this.service.loginAdmin(username,password).subscribe(res=>{
@@ -41,8 +45,11 @@ export class LoginComponent implements OnInit {
       this.resetForm();
     },err=>{
       this.resetForm();
-      console.log(err);
+      this.message="Error occured";
     });
   }
-
+   register()
+   {
+     this.router.navigate(['/register']);
+   }
 }
