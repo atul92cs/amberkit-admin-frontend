@@ -24,38 +24,36 @@
       </ul>
   </div>
 </nav>
-<div class="main-body">
+<div class="container-fluid">
 
-  <div class="container">
-      <h3>Ads</h3>
+
+<div class="user-data">
+
+    <h3>Users</h3>
     <table class="table">
       <thead>
-        <th scope="col">Sr.No.</th>
+        <th scope="col">Sr.No</th>
         <th scope="col">Id</th>
-        <th scope="col">Date</th>
-        <th scope="col">Title</th>
-        <th scope="col">Content</th>
+        <th scope="col">Email</th>
+        <th scope="col">Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Location</th>
         <th scope="col">Picture</th>
-        <th scope="col">Category</th>
-        <th scope="col">Subcategory</th>
-        <th scope="col">Posted by</th>
         <th scope="col">Status</th>
+        <th scope="col">Action</th>
       </thead>
-      <tbody>
-        <tr *ngFor="let data of ads?.result;let i=index ">
-            <th scope="row">{{i+1}}</th>
-            <td>{{data.id}}</td>
-            <td>{{data.Date}}</td>
-            <td>{{data.Title}}</td>
-            <td>{{data.Content}}</td>
-            <td>{{data.Content}}</td>
-            <td>{{data.Subcategory}}</td>
-            <td>{{data.Userid}}</td>
-            <td>{{data.Status}}</td>
-            <td><button type="button" class="btn btn-primary" name="button" (click)="editAd()"><i class="fas fa-pencil-alt"></i></button></td>
-        </tr>
-           <h4 *ngIf="ads?.result.length<=0">No data available</h4>
+      <tbody *ngFor="let data of users?.result;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{data.id}}</td>
+        <td>{{data.Email}}</td>
+        <td>{{data.Name}}</td>
+        <td>{{data.Phone}}</td>
+        <td>{{data.Location}}</td>
+        <td><img [src]="data.Picture" alt="null"></td>
+        <td>{{data.Status}}</td>
+        <td><button type="button" class="btn btn-primary" name="button" (click)="editUsers()"><i class="fas fa-pencil-alt"></i></button></td>
       </tbody>
     </table>
-  </div>
+
+</div>
 </div>
