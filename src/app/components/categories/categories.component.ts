@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import {LoginService} from '../../services/login.service';
 import {AdminService} from '../../services/admin.service';
 import {Router} from '@angular/router';
@@ -12,7 +12,7 @@ import {CategoryModalComponent} from '../category-modal/category-modal.component
 export class CategoriesComponent implements OnInit {
    categories:any;
    message:any;
-  constructor(private service:LoginService,private aservice:AdminService,private router:Router,private matDialog:MatDialog) { }
+  constructor(private service:LoginService,private aservice:AdminService,private router:Router,public matDialog:MatDialog) { }
 
   ngOnInit() {
       this.generateCategories();
@@ -26,11 +26,12 @@ export class CategoriesComponent implements OnInit {
       this.message='Categories not added yet';
     });
   }
-  editCategory()
+  editCategory(id)
   {
     let dialogRef=this.matDialog.open(CategoryModalComponent,{
-      width:'600px'
-    }).afterClosed().subscribe({
+      width:'600px',
+      data:id
+    }).afterClosed().subscribe(res=>{
 
     });
   }

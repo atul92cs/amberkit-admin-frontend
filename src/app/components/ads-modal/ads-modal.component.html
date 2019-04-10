@@ -1,3 +1,28 @@
-<p>
-  ads-modal works!
-</p>
+<form [formGroup]="Adform">
+  <div class="form-group">
+   <input type="text" name="" formControlName="Adid" value="">
+  </div>
+  <div class="form-group">
+   <input type="text" name="" formControlName="Title" value="">
+  </div>
+  <div class="form-group">
+   <input type="text" name="" formControlName="Content" value="">
+  </div>
+  <div class="form-group">
+   <input type="text" name="" formControlName="Category" value="">
+  </div>
+  <div class="form-group">
+   <input type="text" name="" formControlName="Subcategory" value="">
+  </div>
+  <div class="form-group">
+   <select class="form-control" name="status">
+     <option value="0">--select--</option>
+     <option value="false">false</option>
+     <option value="approved">Approved</option>
+     <option value="expired">Expired</option>
+   </select>
+  </div>
+  <div class="form-group">
+    <button type="button" class="btn btn-primary" name="button">Update</button>
+  </div>
+</form>

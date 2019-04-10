@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import {LoginService} from '../../services/login.service';
 import {AdminService} from '../../services/admin.service';
 import {Router} from '@angular/router';
@@ -15,7 +15,7 @@ export class PanelComponent implements OnInit {
 
 
 
-  constructor(private service:AdminService,private aservice:LoginService,private router:Router,private dialog:MatDialog) { }
+  constructor(private service:AdminService,private aservice:LoginService,private router:Router,public dialog:MatDialog) { }
 
   ngOnInit() {
     this.generateAds();
@@ -38,10 +38,11 @@ export class PanelComponent implements OnInit {
         this.message='No ads added yet';
       });
     }
-     editAd()
+     editAd(id)
      {
        let matDialogref=this.dialog.open(UsersModalComponent,{
-         width:'600px'
-       }).afterClosed().subscribe({});
+         width:'600px',
+         data:id
+       }).afterClosed().subscribe(res=>{});
      }
 }

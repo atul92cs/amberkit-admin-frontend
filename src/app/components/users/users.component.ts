@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import {LoginService} from '../../services/login.service';
 import {AdminService} from '../../services/admin.service';
 import {Router} from '@angular/router';
@@ -13,7 +13,7 @@ import {UsersModalComponent} from '../users-modal/users-modal.component';
 export class UsersComponent implements OnInit {
    users:any;
    message:any;
-  constructor(private service:LoginService,private aservice:AdminService,private router:Router,private dialog:MatDialog) { }
+  constructor(private service:LoginService,private aservice:AdminService,private router:Router,public dialog:MatDialog) { }
 
   ngOnInit() {
       this.generateUsers();
@@ -26,10 +26,11 @@ export class UsersComponent implements OnInit {
       this.message='Users not added yet';
     });
   }
-  editUsers()
+  editUsers(id)
   {
     let matDialog=this.dialog.open(UsersModalComponent,{
-      width:'600px'
-    }).afterClosed().subscribe({});
+      width:'600px',
+      data:id
+    }).afterClosed().subscribe(res=>{});
   }
 }

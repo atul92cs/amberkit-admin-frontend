@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 @Component({
   selector: 'app-users-modal',
@@ -7,7 +7,7 @@ import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 })
 export class UsersModalComponent implements OnInit {
 
-  constructor(private userModelRef:MatDialogRef<UsersModalComponent>) { }
+  constructor(public userDialogRef:MatDialogRef<UsersModalComponent>,@Inject(MAT_DIALOG_DATA)public data:string) { }
 
   ngOnInit() {
   }

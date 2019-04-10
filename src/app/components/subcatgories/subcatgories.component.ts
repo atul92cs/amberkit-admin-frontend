@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import {LoginService} from '../../services/login.service';
 import {AdminService} from '../../services/admin.service';
 import {Router} from '@angular/router';
@@ -14,7 +14,7 @@ export class SubcatgoriesComponent implements OnInit {
       subcategories:any;
       categories:any;
       message:any;
-  constructor(private service:LoginService,private aservice:AdminService,private router:Router,private dialog:MatDialog) { }
+  constructor(private service:LoginService,private aservice:AdminService,private router:Router,public dialog:MatDialog) { }
 
   ngOnInit() {
     this.generateSubcategories();
@@ -37,10 +37,11 @@ export class SubcatgoriesComponent implements OnInit {
 
     });
   }
-  editSubCategory()
+  editSubCategory(id)
   {
     let dialogRef=this.dialog.open(SubcategoryModalComponent,{
-      width:'600px'
-    }).afterClosed().subscribe({});
+      width:'600px',
+      data:id
+    }).afterClosed().subscribe(res=>{});
   }
 }

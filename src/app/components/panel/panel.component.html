@@ -52,7 +52,7 @@
             <td>{{data.Subcategory}}</td>
             <td>{{data.Userid}}</td>
             <td>{{data.Status}}</td>
-            <td><button type="button" class="btn btn-primary" name="button" (click)="editAd()"><i class="fas fa-pencil-alt"></i></button></td>
+            <td><button type="button" class="btn btn-primary" name="button" (click)="editAd(data.id)"><i class="fas fa-pencil-alt"></i></button></td>
         </tr>
            <h4 *ngIf="ads?.result.length<=0">No data available</h4>
       </tbody>

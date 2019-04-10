@@ -65,7 +65,7 @@
            <th scope="row">{{i+1}}</th>
            <td>{{data.id}}</td>
            <td>{{data.Name}}</td>
-           <td><button type="button" class="btn btn-primary" name="button" (click)="editCategory()"><i class="fas fa-pencil-alt"></i></button>&nbsp; <button type="button" class="btn btn-danger" name="button"><i class="fas fa-times "></i></button></td>
+           <td><button type="button" class="btn btn-primary" name="button" (click)="editCategory(data.id)"><i class="fas fa-pencil-alt"></i></button>&nbsp; <button type="button" class="btn btn-danger" name="button"><i class="fas fa-times "></i></button></td>
          </tr>
          <h4 *ngIf="categories?.result.length<=0">No data available</h4>
        </tbody>
