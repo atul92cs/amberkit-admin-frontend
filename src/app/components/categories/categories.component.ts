@@ -63,4 +63,9 @@ export class CategoriesComponent implements OnInit {
       this.generateCategories();
     });
   }
+  logout()
+  {
+    this.service.logout();
+    this.router.navigate(['/']);
+  }
 }

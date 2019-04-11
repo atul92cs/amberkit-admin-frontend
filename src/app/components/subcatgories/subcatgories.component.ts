@@ -76,7 +76,12 @@ export class SubcatgoriesComponent implements OnInit {
     this.aservice.deletesubCategory(id).subscribe(res=>{
       this.generateSubcategories();
     },err=>{
-        this.generateSubcategories();    
+        this.generateSubcategories();
     });
+  }
+  logout()
+  {
+    this.service.logout();
+    this.service.navigate(['/']);
   }
 }

@@ -9,3 +9,7 @@ h3
   height: 15vh;
   width: 10vh;
 }
+.nav-item
+{
+  cursor: pointer;
+}

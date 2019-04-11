@@ -37,4 +37,9 @@ export class UsersComponent implements OnInit {
       this.generateUsers();
     });
   }
+  logout()
+  {
+    this.service.logout();
+    this.router.navigate(['/']);
+  }
 }
