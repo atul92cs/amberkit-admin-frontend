@@ -3,22 +3,20 @@ import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 import {FormGroup,FormBuilder,Validators} from '@angular/forms';
 import {AdminService} from '../../services/admin.service';
 @Component({
-  selector: 'app-subcategory-modal',
-  templateUrl: './subcategory-modal.component.html',
-  styleUrls: ['./subcategory-modal.component.css']
+  selector: 'app-subupdate',
+  templateUrl: './subupdate.component.html',
+  styleUrls: ['./subupdate.component.css']
 })
-export class SubcategoryModalComponent implements OnInit {
+export class SubupdateComponent implements OnInit {
    subcategoryform:FormGroup;
-   category:any;
-  constructor(public subDialogref:MatDialogRef<SubcategoryModalComponent>,@Inject(MAT_DIALOG_DATA)public data:string,private formBuilder:FormBuilder,private service:AdminService)
-   {
+   categories:any;
 
-   }
+  constructor(public subupdateDialogRef:MatDialogRef<SubupdateComponent>,@Inject(MAT_DIALOG_DATA)public data:string,private formBuilder:FormBuilder,private service:AdminService) { }
 
   ngOnInit() {
     this.createForm();
     this.generateSubcategory(this.data);
-
+    this.generateCategory();
   }
    createForm()
    {
@@ -28,37 +26,38 @@ export class SubcategoryModalComponent implements OnInit {
        category:['',Validators.required]
      });
    }
-   resetForm()
-   {
-     this.subcategoryform.reset();
-   }
+
    generateSubcategory(data)
    {
 
-     this.service.getSubcategorys(data).subscribe(res=>{
-         console.log(res.result);
-     this.subcategoryform.setValue({
-       id:res.result.id,
-       name:'seed',
-       category:'1'
-     });
-     },err=>{
+  this.service.getSubcategorys(data).subscribe(res=>{
 
-     });
+  this.subcategoryform.setValue({
+    id:res.result[0].id,
+    name:res.result[0].Name,
+    category:res.result[0].Categoryid
+  });
+  },err=>{
+
+  });
    }
    generateCategory()
    {
      this.service.getCategory().subscribe(res=>{
-       this.category=res;
+       this.categories=res;
      });
+   }
+   resetForm()
+   {
+     this.subcategoryform.reset();
    }
    updatesubCategory(id,name,category)
    {
      this.service.updatesubCategory(id,name,category).subscribe(res=>{
-       this.subDialogref.close();
+       this.subupdateDialogRef.close();
         this.resetForm();
      },err=>{
-       this.subDialogref.close();
+       this.subupdateDialogRef.close();
         this.resetForm();
      });
    }

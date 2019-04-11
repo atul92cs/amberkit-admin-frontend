@@ -34,18 +34,18 @@
           <h4>Subcategory</h4>
         </div>
         <div class="card-body">
-        <form [formGroup]="subcategoryform">
+        <form [formGroup]="subcategoryForm">
           <div class="form-group">
-            <input type="text" class="form-control" name="name" formControlName="name" placeholder="Name">
+            <input type="text" class="form-control" name="name" #name formControlName="name" placeholder="Name">
           </div>
           <div class="form-group">
-            <select class="form-control" name="category" >
+            <select class="form-control" name="category" #category >
               <option value="0">-Select-</option>
-              <option  *ngFor="let data of subcategories?.result" value="{{data.id}}">{{data.Name}}</option>
+              <option  *ngFor="let data of categories?.result" value="{{data.id}}">{{data.Name}}</option>
             </select>
           </div>
           <div class="form-group text-center">
-            <button type="button" class="btn btn-primary" name="button"><i class="fas fa-database"></i> &nbsp; Save</button>
+            <button type="button" class="btn btn-primary" name="button" (click)="createSubcategory(name.value,category.value)"><i class="fas fa-database"></i> &nbsp; Save</button>
           </div>
         </form>
         </div>
@@ -69,7 +69,7 @@
         <td>{{data.id}}</td>
         <td>{{data.Name}}</td>
         <td>{{data.Category}}</td>
-        <td><button type="button" class="btn btn-primary" name="button" (click)="editSubCategory(data.id)"><i class="fas fa-pencil-alt"></i></button>&nbsp;<button type="button" class="btn btn-danger" name="button"><i class="fas fa-times "></i></button></td>
+        <td><button type="button" class="btn btn-primary" name="button" (click)="editSubCategory(data.id)"><i class="fas fa-pencil-alt"></i></button>&nbsp;<button type="button" class="btn btn-danger" name="button" (click)="subcategoryDelete(data.id)"><i class="fas fa-times "></i></button></td>
       </tbody>
 
     </table>

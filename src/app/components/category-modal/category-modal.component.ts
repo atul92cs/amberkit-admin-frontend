@@ -15,6 +15,10 @@ export class CategoryModalComponent implements OnInit {
     this.createForm();
     this.generateCategory(this.data);
   }
+  resetForm()
+  {
+    this.categoryForm.reset();
+  }
   createForm()
   {
     this.categoryForm=this.formBuilder.group({
@@ -22,6 +26,16 @@ export class CategoryModalComponent implements OnInit {
       categoryName:['',Validators.required]
     });
 
+  }
+  categoryUpdate(id,name)
+  {
+    this.service.updateCategory(id,name).subscribe(res=>{
+      this.categoryForm.reset();
+      this.categoryDialogref.close();
+    },err=>{
+      this.categoryForm.reset();
+      this.categoryDialogref.close();
+    });
   }
   generateCategory(data)
   {

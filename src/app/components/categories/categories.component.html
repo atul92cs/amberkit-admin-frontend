@@ -37,12 +37,12 @@
          <h4>Category form</h4>
        </div>
        <div class="card-body">
-         <form [formGroup]="categoryform">
+         <form [formGroup]="categoryForm">
            <div class="form-group">
-             <input type="text" name="name" class="form-control" placeholder="Name">
+             <input type="text" name="name" formControlName="name" #name class="form-control" placeholder="Name">
            </div>
            <div class="form-group text-center">
-             <button type="button" class="btn btn-primary" name="button"><i class="fas fa-database"></i> &nbsp; Save</button>
+             <button type="button" class="btn btn-primary" name="button" (click)="createCategory(name.value)"><i class="fas fa-database"></i> &nbsp; Save</button>
            </div>
          </form>
        </div>
@@ -65,7 +65,7 @@
            <th scope="row">{{i+1}}</th>
            <td>{{data.id}}</td>
            <td>{{data.Name}}</td>
-           <td><button type="button" class="btn btn-primary" name="button" (click)="editCategory(data.id)"><i class="fas fa-pencil-alt"></i></button>&nbsp; <button type="button" class="btn btn-danger" name="button"><i class="fas fa-times "></i></button></td>
+           <td><button type="button" class="btn btn-primary" name="button" (click)="editCategory(data.id)"><i class="fas fa-pencil-alt"></i></button>&nbsp; <button type="button" class="btn btn-danger" name="button" (click)="deleteCategory(data.id)"><i class="fas fa-times "></i></button></td>
          </tr>
          <h4 *ngIf="categories?.result.length<=0">No data available</h4>
        </tbody>

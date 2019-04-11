@@ -17,6 +17,7 @@ import { CategoryModalComponent } from './components/category-modal/category-mod
 import { SubcategoryModalComponent } from './components/subcategory-modal/subcategory-modal.component';
 import { UsersModalComponent } from './components/users-modal/users-modal.component';
 import { AdsModalComponent } from './components/ads-modal/ads-modal.component';
+import { SubupdateComponent } from './components/subupdate/subupdate.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AdsModalComponent } from './components/ads-modal/ads-modal.component';
     CategoryModalComponent,
     SubcategoryModalComponent,
     UsersModalComponent,
-    AdsModalComponent
+    AdsModalComponent,
+    SubupdateComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,6 @@ import { AdsModalComponent } from './components/ads-modal/ads-modal.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[CategoryModalComponent,SubcategoryModalComponent,UsersModalComponent]
+  entryComponents:[CategoryModalComponent,SubcategoryModalComponent,UsersModalComponent,SubupdateComponent]
 })
 export class AppModule { }

@@ -42,5 +42,42 @@ export class AdminService {
   {
     return this.http.get<any>(this.apiUrl+'subcategory/'+id);
   }
-
+  insertCategory(name)
+  {
+    const categoryData={
+      name:name
+    }
+    return this.http.post<any>(this.apiUrl+'category/add',categoryData);
+  }
+  updateCategory(id,name)
+  {
+    const categoryData={
+      name:name
+    }
+    return this.http.put<any>(this.apiUrl+'category/'+id,categoryData);
+  }
+  deleteCategory(id)
+  {
+    return this.http.delete<any>(this.apiUrl+'category/'+id);
+  }
+  insertsubCategory(name,category)
+  {
+    const subcategoryData={
+      name:name,
+      category:category
+    }
+    return this.http.post<any>(this.apiUrl+'subcategory/add',subcategoryData);
+  }
+  updatesubCategory(id,name,category)
+  {
+    const subcategoryData={
+      name:name,
+      category:category
+    }
+    return this.http.put<any>(this.apiUrl+'subcategory/'+id,subcategoryData);
+  }
+  deletesubCategory(id)
+  {
+    return this.http.delete<any>(this.apiUrl+'subcategory/'+id);
+  }
 }
