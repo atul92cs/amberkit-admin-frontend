@@ -80,4 +80,11 @@ export class AdminService {
   {
     return this.http.delete<any>(this.apiUrl+'subcategory/'+id);
   }
+  updateUser(id,status)
+  {
+    const userData={
+      status:status
+    }
+    return this.http.put<any>(this.apiUrl+'user/'+id,userData);
+  }
 }

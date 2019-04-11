@@ -33,4 +33,18 @@ export class UsersModalComponent implements OnInit {
         });
       });
     }
+    resetForm()
+    {
+      this.userupdate.reset();
+    }
+    userUpdate(id,status)
+    {
+      this.service.updateUser(id,status).subscribe(res=>{
+        this.userDialogRef.close();
+        this.resetForm();
+      },err=>{
+         this.userDialogRef.close();
+         this.resetForm();
+      });
+    }
 }

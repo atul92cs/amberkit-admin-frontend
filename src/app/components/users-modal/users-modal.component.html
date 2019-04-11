@@ -1,11 +1,17 @@
 <form [formGroup]="userupdate">
   <div class="form-group">
-    <input type="text" name="id" formControlName="id" value="">
+    <input type="text" name="id" class="form-control" #id formControlName="id" value="" readonly>
   </div>
   <div class="form-group">
-    <input type="text" name="name" formControlName="name" value="">
+    <input type="text" name="name" class="form-control" #name formControlName="name" value="" readonly>
   </div>
   <div class="form-group">
-    <input type="text" name="status" formControlName="status" value="">
+    <select type="text" name="status" class="form-control" #status formControlName="status" value="">
+         <option value="false">False</option>
+         <option value="true">True</option>
+      </select>
+  </div>
+  <div class="form-group text-center">
+    <button type="button" class="btn btn-primary" name="button" (click)="userUpdate(id.value,status.value)" >Update</button>
   </div>
 </form>

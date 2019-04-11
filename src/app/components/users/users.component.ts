@@ -31,6 +31,10 @@ export class UsersComponent implements OnInit {
     let matDialog=this.dialog.open(UsersModalComponent,{
       width:'600px',
       data:id
-    }).afterClosed().subscribe(res=>{});
+    }).afterClosed().subscribe(res=>{
+      this.generateUsers();
+    },err=>{
+      this.generateUsers();
+    });
   }
 }
