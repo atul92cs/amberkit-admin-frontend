@@ -82,6 +82,6 @@ export class SubcatgoriesComponent implements OnInit {
   logout()
   {
     this.service.logout();
-    this.service.navigate(['/']);
+    this.router.navigate(['/']);
   }
 }
