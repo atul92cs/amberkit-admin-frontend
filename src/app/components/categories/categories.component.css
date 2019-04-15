@@ -12,3 +12,8 @@ h3
 {
   cursor: pointer;
 }
+.search-bar
+{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}

@@ -18,7 +18,7 @@ import { SubcategoryModalComponent } from './components/subcategory-modal/subcat
 import { UsersModalComponent } from './components/users-modal/users-modal.component';
 import { AdsModalComponent } from './components/ads-modal/ads-modal.component';
 import { SubupdateComponent } from './components/subupdate/subupdate.component';
-
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +42,8 @@ import { SubupdateComponent } from './components/subupdate/subupdate.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

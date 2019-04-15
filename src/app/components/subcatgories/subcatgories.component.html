@@ -56,6 +56,9 @@
   <div class="col-md-8 col-xs-12 col-sm-12">
   <div class="container">
     <h3>Subcategories</h3>
+    <div class="search-bar">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search subcategory">
+      </div>
     <table class="table">
       <thead>
         <th scope="col">Sr.No</th>
@@ -64,7 +67,7 @@
         <th scope="col">Category</th>
         <th scope="col">Action</th>
       </thead>
-      <tbody *ngFor="let data of subcategories?.result;let i=index">
+      <tbody *ngFor="let data of subcategories?.result|filter:searchText;let i=index">
         <th scope="row">{{i+1}}</th>
         <td>{{data.id}}</td>
         <td>{{data.Name}}</td>
