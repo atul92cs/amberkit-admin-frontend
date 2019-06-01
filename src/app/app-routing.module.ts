@@ -6,6 +6,7 @@ import {LoginComponent} from './components/login/login.component';
 import {CategoriesComponent} from './components/categories/categories.component';
 import {SubcatgoriesComponent} from './components/subcatgories/subcatgories.component';
 import {UsersComponent} from './components/users/users.component';
+import {LocationComponent} from './components/location/location.component';
 import {LoginGuard} from './guards/login.guard';
 const routes: Routes = [
   {path:'panel',component:PanelComponent,canActivate:[LoginGuard]},
@@ -13,7 +14,9 @@ const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'category',component:CategoriesComponent,canActivate:[LoginGuard]},
   {path:'subcategory',component:SubcatgoriesComponent,canActivate:[LoginGuard]},
-  {path:'user',component:UsersComponent,canActivate:[LoginGuard]}
+  {path:'user',component:UsersComponent,canActivate:[LoginGuard]},
+  {path:'location',component:LocationComponent,canActivate:[LoginGuard]}
+
 ];
 
 @NgModule({

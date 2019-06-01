@@ -19,6 +19,8 @@ import { UsersModalComponent } from './components/users-modal/users-modal.compon
 import { AdsModalComponent } from './components/ads-modal/ads-modal.component';
 import { SubupdateComponent } from './components/subupdate/subupdate.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { LocationComponent } from './components/location/location.component';
+import { UpdateLocationComponent } from './components/update-location/update-location.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
     SubcategoryModalComponent,
     UsersModalComponent,
     AdsModalComponent,
-    SubupdateComponent
+    SubupdateComponent,
+    LocationComponent,
+    UpdateLocationComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +51,6 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[CategoryModalComponent,SubcategoryModalComponent,UsersModalComponent,SubupdateComponent]
+  entryComponents:[CategoryModalComponent,SubcategoryModalComponent,UsersModalComponent,SubupdateComponent,UpdateLocationComponent]
 })
 export class AppModule { }
